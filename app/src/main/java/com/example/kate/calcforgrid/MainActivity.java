@@ -96,10 +96,6 @@ public class MainActivity extends AppCompatActivity {
                         action = ACTION_ADD;
                         number1 = number;
                         break;
-                    case ACTION_DELETE:
-                        calcText.setText("");
-                        action = "";
-                        break;
                     default:
                         break;
                 }
@@ -165,6 +161,10 @@ public class MainActivity extends AppCompatActivity {
                 case POINT:
                     num += POINT;
                     calcText.setText(num);
+                    break;
+                case ACTION_DELETE:
+                    calcText.setText("");
+                    action = "";
                     break;
                 default:
                     break;
