@@ -120,8 +120,6 @@ public class MainActivity extends AppCompatActivity {
             } else if (calcText.getText().equals(POINT)){
                 num = NUM_0 + POINT + num;
                 calcText.setText(num);
-            } else if (action.equals(ACTION_RESULT)){
-                return;
             }
             switch (v.getTag().toString()) {
                 case NUM_0:
