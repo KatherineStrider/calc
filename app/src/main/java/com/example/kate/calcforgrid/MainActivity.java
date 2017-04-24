@@ -66,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
                 switch (v.getTag().toString()) {
                     case ACTION_RESULT:
                         if (action.equals("")) {
-                            Toast.makeText(MainActivity.this, R.string.exeptOperation, Toast.LENGTH_LONG).show();
-                            calcText.setText("");
+//                            Toast.makeText(MainActivity.this, R.string.exeptOperation, Toast.LENGTH_LONG).show();
+                            calcText.setText(num);
                             return;
                         }
                         number2 = number;
@@ -106,7 +106,11 @@ public class MainActivity extends AppCompatActivity {
                         calcText.setText(ACTION_DEDUCT);
                         forNumbers = true;
                     }
-                } else {
+                }else if (calcText.getText().toString().equals(INFINITY)){
+                    calcText.setText(INFINITY);
+                    Toast.makeText(MainActivity.this, R.string.infinityNotAction, Toast.LENGTH_LONG).show();
+                }
+                else {
                     num = "";
                 }
             }
@@ -116,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
             } else if (calcText.getText().equals(POINT)){
                 num = NUM_0 + POINT + num;
                 calcText.setText(num);
+            } else if (action.equals(ACTION_RESULT)){
+                return;
             }
             switch (v.getTag().toString()) {
                 case NUM_0:
@@ -159,12 +165,14 @@ public class MainActivity extends AppCompatActivity {
                     calcText.setText(num);
                     break;
                 case POINT:
+                    if(calcText.getText().equals(NUM_0 + POINT)){return;}
                     num += POINT;
                     calcText.setText(num);
                     break;
                 case ACTION_DELETE:
                     calcText.setText("");
                     action = "";
+                    forNumbers = false;
                     break;
                 default:
                     break;

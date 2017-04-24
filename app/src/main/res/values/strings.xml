@@ -25,4 +25,5 @@
     <string name="num1">number1</string>
     <string name="num2">number2</string>
     <string name="forNum">forNumbers</string>
+    <string name="infinityNotAction">С бесконечностью ничего не сделаешь</string>
 </resources>
